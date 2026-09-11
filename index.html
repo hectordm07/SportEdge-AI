@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SportEdge AI — Live, probabilidades, combinadas y Cash Out</title>
+  <meta name="description" content="Plataforma de análisis deportivo con partidos en vivo, probabilidades, análisis de combinadas, Cash Out, comparador de cuotas y noticias." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="SportEdge AI — Datos que anticipan el partido" />
+  <meta property="og:description" content="Live scores, probabilidades, combinadas, Cash Out y cuotas en una sola plataforma." />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"SportEdge AI","description":"Análisis deportivo, probabilidades, combinadas y cuotas en vivo","inLanguage":"es"}</script>
+  <style>
+    :root{
+      --bg:#071019;--panel:#0d1824;--panel2:#101e2c;--line:#203247;--line2:#2c445b;
+      --text:#f5f8fb;--muted:#8fa3b8;--green:#22e59b;--lime:#a9ff5b;--yellow:#ffc857;
+      --red:#ff5e6c;--blue:#4aa8ff;--purple:#9c7cff;--shadow:0 18px 60px rgba(0,0,0,.28)
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(900px 500px at 5% -10%,#18314a 0%,transparent 55%),var(--bg);color:var(--text)}a{color:inherit;text-decoration:none}button,input,select{font:inherit}.wrap{width:min(1240px,calc(100% - 32px));margin:auto}
+    .topbar{border-bottom:1px solid var(--line);background:#071019e8;backdrop-filter:blur(12px);position:sticky;top:0;z-index:30}.nav{height:68px;display:flex;align-items:center;gap:24px}.logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.5px;font-size:20px}.mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--green),var(--blue));display:grid;place-items:center;color:#04100c;font-weight:1000;box-shadow:0 0 24px #22e59b55}.logo small{font-size:10px;background:#183324;color:var(--green);padding:3px 6px;border-radius:999px;margin-left:5px;vertical-align:middle}.navlinks{display:flex;gap:16px;margin-left:auto;font-size:13px;color:#b9c7d5}.navlinks a:hover{color:#fff}.nav-actions{display:flex;gap:10px}.btn{border:1px solid var(--line);background:#122131;color:#fff;padding:10px 14px;border-radius:10px;font-weight:800;cursor:pointer}.btn:hover{border-color:#45627f}.btn.primary{background:linear-gradient(135deg,var(--green),#55f4bd);color:#052116;border-color:transparent}.btn.small{padding:7px 10px;font-size:11px}.btn.danger{border-color:#6b2632;background:#2c1419;color:#ff8f99}
+    .ticker{border-bottom:1px solid var(--line);background:#0a1520}.ticker .wrap{display:flex;align-items:center;gap:20px;height:40px;overflow:hidden;white-space:nowrap;font-size:12px}.livepill{background:#3b1118;color:#ff8792;border:1px solid #6d2531;padding:4px 8px;border-radius:999px;font-weight:900}.statuspill{padding:4px 8px;border-radius:999px;border:1px solid #365069;background:#102031;color:#a8bed2}.statuspill.ok{background:#123125;border-color:#24553f;color:#72f3bf}.statuspill.warn{background:#2a2212;border-color:#6d5526;color:#ffd476}
+    .hero{padding:58px 0 30px}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:28px;align-items:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--green);font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:900}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px #22e59b18}.hero h1{font-size:clamp(43px,6vw,76px);line-height:.96;letter-spacing:-4px;margin:16px 0 20px;max-width:780px}.gradient{background:linear-gradient(90deg,#fff,var(--green),#68b8ff);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:17px;line-height:1.7;color:#aab9c8;max-width:740px}.hero-actions{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}.micro{display:flex;gap:22px;margin-top:25px;color:#8fa3b8;font-size:12px;flex-wrap:wrap}.micro b{color:#fff}.hero-card{background:linear-gradient(180deg,#122334,#0a151f);border:1px solid #284057;border-radius:20px;padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero-card:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:#22e59b12;filter:blur(30px);right:-110px;top:-120px}.card-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;padding:5px 8px;border-radius:999px;background:#162638;color:#9ab0c3;border:1px solid #2d435a}.tag.live{background:#37141a;border-color:#67232d;color:#ff8490;font-weight:900}.tag.green{background:#123125;border-color:#24553f;color:#72f3bf}.hero-match{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;margin:24px 0}.team{text-align:center;font-weight:850}.crest{width:56px;height:56px;border-radius:16px;background:#15283a;border:1px solid #2a4155;display:grid;place-items:center;font-size:22px;margin:0 auto 9px;overflow:hidden}.crest img{width:100%;height:100%;object-fit:contain;padding:8px}.score{text-align:center;font-size:34px;font-weight:1000;letter-spacing:-2px}.score small{display:block;color:var(--green);font-size:11px;letter-spacing:.08em;margin-top:4px}.probrow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.prob{padding:11px;background:#0d1a27;border:1px solid var(--line);border-radius:12px;text-align:center}.prob strong{display:block;font-size:21px}.prob span{font-size:11px;color:var(--muted)}.confidence{margin-top:12px;background:#0b1620;border-radius:12px;padding:12px;border:1px solid var(--line)}.bar{height:8px;border-radius:99px;background:#172637;overflow:hidden;margin-top:7px}.bar i{display:block;height:100%;width:78%;background:linear-gradient(90deg,var(--blue),var(--green));border-radius:99px}
+    section{padding:36px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:18px}.section-head h2{font-size:30px;letter-spacing:-1.3px;margin:0}.section-head p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.5}.section-tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.live-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.match-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:15px;transition:.2s}.match-card:hover{transform:translateY(-2px);border-color:#36516c}.league{display:flex;justify-content:space-between;align-items:center;color:#8499ad;font-size:11px;gap:10px}.league-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mini-teams{margin:15px 0 12px;display:grid;gap:9px}.mini-team{display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:800}.mini-team>span:first-child{display:flex;align-items:center;gap:8px;min-width:0}.mini-team em{font-style:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mini-ball{width:29px;height:29px;border-radius:9px;background:#16293a;display:grid;place-items:center;overflow:hidden;flex:0 0 auto}.mini-ball img{width:100%;height:100%;object-fit:contain;padding:3px}.mini-score{font-size:20px}.statsline{display:grid;grid-template-columns:1fr 1fr;gap:8px}.metric{background:#0a1520;padding:8px;border-radius:10px;border:1px solid #1d3042}.metric small{display:block;color:#7e93a8;font-size:10px}.metric b{font-size:13px}.spark{color:var(--green);font-weight:900}.pick-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}.pick{border:1px solid #294158;background:#102030;color:#dce7f2;border-radius:9px;padding:8px 5px;font-size:10px;cursor:pointer;text-align:center}.pick:hover{border-color:var(--green);color:var(--green)}.empty{grid-column:1/-1;padding:28px;border:1px dashed #2b4358;border-radius:16px;color:#93a6b8;text-align:center;background:#0a1520}.skeleton{animation:pulse 1.2s infinite alternate}@keyframes pulse{from{opacity:.45}to{opacity:.9}}
+    .combo-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}.combo-list{display:grid;gap:9px;margin-top:12px}.combo-leg{display:grid;grid-template-columns:1fr 110px 42px;gap:9px;align-items:center;background:#0a1621;border:1px solid #1e3346;border-radius:12px;padding:11px}.combo-leg .label{min-width:0}.combo-leg .label b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px}.combo-leg .label span{color:#8297ab;font-size:10px}.odd-input{width:100%;background:#0d1b28;border:1px solid #2a4155;border-radius:9px;color:#fff;padding:9px}.remove{width:38px;height:38px;border-radius:9px;border:1px solid #5a2a31;background:#2a151a;color:#ff8b94;cursor:pointer}.combo-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}.bigmetric{background:#0a1621;border:1px solid #1e3346;border-radius:12px;padding:13px}.bigmetric span{display:block;color:#8297ab;font-size:10px;text-transform:uppercase;letter-spacing:.07em}.bigmetric b{display:block;margin-top:4px;font-size:24px}.analysis-box{border-radius:14px;padding:14px;background:#0a1621;border:1px solid #243b50;line-height:1.55;font-size:12px;color:#b4c3d1}.analysis-box strong{color:#fff}.riskbar{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:10px}.riskbar i{height:7px;border-radius:20px;background:#1c2c3c}.riskbar i.on{background:linear-gradient(90deg,var(--green),var(--yellow),var(--red))}.combo-help{font-size:10px;color:#768ba0;line-height:1.55;margin-top:12px}.shortcut-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.shortcut{padding:10px;border:1px solid #2a4155;background:#102030;border-radius:11px;color:#c9d6e2;cursor:pointer;text-align:left}.shortcut b{display:block;font-size:12px}.shortcut span{font-size:10px;color:#8195a8}
+    .cashout{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}.cash-card,.odds-card,.news-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px}.signal{display:flex;align-items:center;justify-content:space-between;background:#33161b;border:1px solid #702b36;border-radius:14px;padding:13px 14px;margin:14px 0}.signal strong{color:#ff7c87}.signal-badge{font-size:11px;background:#ff5e6c;color:white;padding:6px 8px;border-radius:8px;font-weight:900}.cash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.cash-metric{background:#0a1621;border:1px solid var(--line);border-radius:12px;padding:12px}.cash-metric span{display:block;color:#8095a9;font-size:10px}.cash-metric b{font-size:20px}.positive{color:var(--green)}.negative{color:var(--red)}.reason-list{display:grid;gap:8px;margin-top:12px}.reason{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed #23384b;color:#a8b8c8;font-size:12px}.reason b{color:#fff}
+    .odds-wrap{overflow:auto}.odds-table{width:100%;border-collapse:collapse;min-width:760px}.odds-table th,.odds-table td{padding:13px 12px;border-bottom:1px solid #1d3042;text-align:left;font-size:12px}.odds-table th{color:#71879c;text-transform:uppercase;letter-spacing:.08em;font-size:10px}.book{display:flex;align-items:center;gap:10px;font-weight:800}.book-logo{width:34px;height:34px;border-radius:9px;background:#182a3b;display:grid;place-items:center;font-size:11px}.odd{font-size:16px;font-weight:900}.best{color:var(--green);background:#143225;padding:5px 8px;border-radius:8px}.outlink{display:inline-flex;align-items:center;gap:5px;color:#dbe7f2;border:1px solid #30485e;padding:7px 9px;border-radius:8px;font-size:11px}.outlink:hover{border-color:var(--green);color:var(--green)}
+    .news-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:14px}.feature{min-height:320px;display:flex;flex-direction:column;justify-content:end;background:linear-gradient(180deg,transparent 20%,#09131ee8),radial-gradient(circle at 25% 25%,#284c6b,#111d2b 60%);position:relative;overflow:hidden}.feature:before{content:"⚽";font-size:145px;position:absolute;right:18px;top:20px;opacity:.08}.news-card h3{font-size:18px;line-height:1.25;margin:10px 0}.feature h3{font-size:28px;max-width:580px}.meta{font-size:11px;color:#7d92a6}.cat{font-size:10px;color:var(--green);font-weight:900;text-transform:uppercase;letter-spacing:.1em}.news-small{display:grid;gap:14px}.news-small .news-card{min-height:155px}.news-card p{font-size:12px;line-height:1.6;color:#94a8bb}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.chip{font-size:10px;padding:6px 8px;background:#112130;border:1px solid #263c51;border-radius:999px;color:#a9bbcb}
+    .tech{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.tech-card{background:#0b1722;border:1px solid var(--line);border-radius:15px;padding:16px}.tech-card .ico{font-size:23px;margin-bottom:12px}.tech-card b{display:block;margin-bottom:7px}.tech-card span{font-size:11px;line-height:1.55;color:#8398ac}.footer{border-top:1px solid var(--line);margin-top:28px;padding:34px 0 24px;background:#071019}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}.footer h4{margin:0 0 12px;font-size:12px}.footer p,.footer a{display:block;color:#7f93a6;font-size:11px;line-height:1.8}.legal{border-top:1px solid #182a3b;margin-top:28px;padding-top:18px;display:flex;justify-content:space-between;color:#61778b;font-size:10px;gap:20px}.toast{position:fixed;right:20px;bottom:20px;width:min(360px,calc(100% - 40px));background:#101e2c;border:1px solid #35506a;border-radius:14px;padding:14px;box-shadow:var(--shadow);display:none;z-index:60}.toast.show{display:block}.toast strong{display:block;margin-bottom:4px}.toast span{font-size:11px;color:#9db0c2;line-height:1.4}.source-note{font-size:10px;color:#70869a;line-height:1.5;margin-top:10px}.config-card{display:none;margin-top:12px;border:1px solid #6a5528;background:#2a2212;border-radius:12px;padding:12px;color:#e9d497;font-size:11px;line-height:1.5}.config-card.show{display:block}.config-card code{color:#fff;background:#111c26;padding:2px 5px;border-radius:5px}
+    .filterbar{display:grid;grid-template-columns:auto minmax(180px,1fr) minmax(180px,1fr);gap:10px;margin:0 0 15px;align-items:center}.filter-buttons{display:flex;gap:7px;flex-wrap:wrap}.filter-btn{border:1px solid #294158;background:#0e1c2a;color:#a9bbcb;border-radius:10px;padding:9px 12px;font-weight:800;font-size:11px;cursor:pointer}.filter-btn.active{background:linear-gradient(135deg,#ff7a00,#ffb000);color:#1c0d00;border-color:transparent;box-shadow:0 8px 24px #ff7a0028}.filter-input,.filter-select{width:100%;background:#0d1b28;border:1px solid #2a4155;border-radius:10px;color:#fff;padding:10px 12px;outline:none}.filter-input:focus,.filter-select:focus{border-color:#4aa8ff;box-shadow:0 0 0 3px #4aa8ff18}.filter-summary{font-size:11px;color:#8297ab;margin:-6px 0 14px}.book-logo.betano{background:linear-gradient(135deg,#ff6a00,#ff9a00);color:white}.book-logo.betsson{background:linear-gradient(135deg,#f36c21,#ffb000);color:#17100a}.book-logo.apuestatotal{background:linear-gradient(135deg,#e61d2b,#8e1019);color:white}.book-logo.inkabet{background:linear-gradient(135deg,#12a84f,#0a6b32);color:white}.news-auto{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.news-auto .news-card{min-height:180px;display:flex;flex-direction:column}.news-auto .news-card h3{font-size:16px}.news-link{margin-top:auto;padding-top:12px;color:#7fc1ff;font-size:11px;font-weight:800}.quota{display:inline-flex;gap:6px;align-items:center;font-size:10px;color:#8fa3b8}.quota b{color:#fff}.free-note{border:1px solid #4a3a16;background:#211b0d;color:#e8c975;border-radius:12px;padding:11px 13px;font-size:11px;line-height:1.5;margin-bottom:14px}
+
+    .official-shell{display:grid;grid-template-columns:280px 1fr;gap:16px}.official-panel{background:#fff;border-radius:16px;overflow:hidden;min-height:460px;border:1px solid var(--line);box-shadow:var(--shadow)}.official-panel.wide{min-height:560px}.official-note{margin-top:12px;color:var(--muted);font-size:12px}.official-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.official-head .secure{font-size:11px;color:var(--green);font-weight:900;border:1px solid #24553f;background:#0c261d;padding:6px 9px;border-radius:999px}@media(max-width:850px){.official-shell{grid-template-columns:1fr}.official-panel{min-height:360px}}
+    @media(max-width:980px){.filterbar{grid-template-columns:1fr 1fr}.filter-buttons{grid-column:1/-1}.news-auto{grid-template-columns:1fr 1fr}.navlinks{display:none}.hero-grid,.combo-layout,.cashout{grid-template-columns:1fr}.live-grid,.grid3{grid-template-columns:1fr 1fr}.news-grid{grid-template-columns:1fr}.news-small{grid-template-columns:1fr 1fr}.tech{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}.hero h1{letter-spacing:-2px}}
+    @media(max-width:650px){.filterbar,.news-auto{grid-template-columns:1fr}.wrap{width:min(100% - 20px,1240px)}.nav-actions .ghost{display:none}.live-grid,.grid3,.news-small,.tech,.footer-grid{grid-template-columns:1fr}.hero{padding-top:38px}.hero h1{font-size:43px}.section-head{align-items:flex-start;flex-direction:column}.cash-grid{grid-template-columns:1fr}.combo-stats{grid-template-columns:1fr 1fr}.combo-leg{grid-template-columns:1fr 90px 38px}.legal{flex-direction:column}.hero-match{gap:7px}.team{font-size:12px}.crest{width:48px;height:48px}.score{font-size:28px}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap"><div class="nav">
+  <a class="logo" href="#inicio"><span class="mark">S</span><span>SportEdge <span style="color:var(--green)">AI</span><small>v2</small></span></a>
+  <nav class="navlinks"><a href="#live">En vivo</a><a href="#oficial">Datos oficiales</a><a href="#combinadas">Combinadas</a><a href="#analisis">Cash Out</a><a href="#cuotas">Cuotas</a><a href="#noticias">Noticias</a></nav>
+  <div class="nav-actions"><button class="btn ghost" onclick="refreshLive(true)">↻ Actualizar</button><a class="btn primary" href="#combinadas">Analizar combinación</a></div>
+</div></div></header>
+<div class="ticker"><div class="wrap"><span class="livepill">● LIVE</span><span id="apiStatus" class="statuspill">Comprobando conexión…</span><span class="tickitem">Modo Free: <b>caché API 20 min</b></span><span class="tickitem">Última consulta: <b id="lastFetch">—</b></span><span class="tickitem">Partidos LIVE: <b id="liveCount">—</b></span></div></div>
+
+<main>
+<section class="hero" id="inicio"><div class="wrap hero-grid">
+  <div><div class="eyebrow"><span class="dot"></span> análisis deportivo en tiempo real</div><h1>Live, probabilidades y <span class="gradient">combinadas inteligentes.</span></h1><p>Unifica marcadores en vivo, estimaciones de probabilidad, análisis de múltiples selecciones, Cash Out y comparación de cuotas. Las señales muestran riesgo y valor; no garantizan resultados.</p><div class="hero-actions"><a class="btn primary" href="#live">Ver partidos LIVE</a><a class="btn" href="#combinadas">Crear combinada</a><a class="btn" target="_blank" rel="noopener" href="https://www.api-football.com/">API-Football ↗</a></div><div class="micro"><span><b>Automático</b> con caché Free</span><span><b>1X2</b> modelo base</span><span><b>N partidos</b> combinaciones</span><span><b>API segura</b> vía backend</span></div></div>
+  <article class="hero-card"><div class="card-head"><div><span class="tag live" id="heroLiveBadge">DEMO</span><span class="tag" id="heroLeague">Premier League</span></div><span class="tag" id="heroElapsed">73'</span></div><div class="hero-match"><div class="team"><span class="crest" id="heroHomeCrest">A</span><div id="heroHome">Arsenal</div></div><div class="score"><span id="heroScore">2 – 1</span><small id="heroStatusText">EN VIVO</small></div><div class="team"><span class="crest" id="heroAwayCrest">L</span><div id="heroAway">Liverpool</div></div></div><div class="probrow"><div class="prob"><strong id="pHome">64%</strong><span id="pHomeLabel">Arsenal</span></div><div class="prob"><strong id="pDraw">23%</strong><span>Empate</span></div><div class="prob"><strong id="pAway">13%</strong><span id="pAwayLabel">Liverpool</span></div></div><div class="confidence"><div style="display:flex;justify-content:space-between;font-size:11px"><span>Confianza heurística</span><b id="confidenceText">78/100</b></div><div class="bar"><i id="confidenceBar"></i></div><div class="source-note">Estimación demostrativa v1 basada en marcador y minuto. Para producción se entrena y calibra con histórico, xG, tiros, alineaciones y mercado.</div></div></article>
+</div></section>
+
+<section id="live"><div class="wrap">
+  <div class="section-head"><div><h2>Centro de partidos en vivo</h2><p>API-Football conectada desde el servidor. Los filtros se aplican localmente para no gastar solicitudes adicionales.</p></div><div class="section-tools"><span id="liveMode" class="tag">DEMO</span><span class="quota">API hoy: <b id="quotaText">—</b></span><button class="btn small" onclick="refreshLive(true)">Actualizar</button></div></div>
+  <div id="configCard" class="config-card"><b>Conexión preparada, falta la clave.</b> En local usa <code>.env</code>; en Hostinger crea la variable <code>APISPORTS_KEY</code>. Nunca publiques la clave en GitHub.</div>
+  <div class="free-note">Plan Free protegido: el servidor reutiliza una misma respuesta LIVE para todos los usuarios y limita su propio consumo diario. Puedes cambiar los tiempos desde las variables de entorno.</div>
+  <div class="filterbar">
+    <div class="filter-buttons"><button class="filter-btn active" data-filter="all" onclick="setCountryFilter('all',this)">🌎 Todos</button><button class="filter-btn" data-filter="peru" onclick="setCountryFilter('peru',this)">🇵🇪 Perú</button></div>
+    <select id="leagueFilter" class="filter-select" onchange="applyFilters()"><option value="">Todas las ligas</option></select>
+    <input id="matchSearch" class="filter-input" type="search" placeholder="Buscar equipo, liga o país…" oninput="applyFilters()">
+  </div>
+  <div id="filterSummary" class="filter-summary">Mostrando todos los partidos disponibles.</div>
+  <div id="liveGrid" class="live-grid"><div class="empty skeleton">Consultando partidos en vivo…</div></div>
+  <div class="source-note">Fuente Live en producción: API-Football/API-Sports. Datos refrescados según disponibilidad y cobertura de la competición.</div>
+</div></section>
+
+
+<section id="oficial" class="section"><div class="wrap">
+  <div class="official-head"><div><h2>Datos oficiales API‑SPORTS</h2><p>Explora ligas y partidos con los widgets oficiales. La API key se mantiene en el servidor y no se publica en GitHub.</p></div><span class="secure">🔒 CLAVE PROTEGIDA</span></div>
+  <div class="official-shell">
+    <div class="official-panel"><api-sports-widget data-type="leagues"></api-sports-widget></div>
+    <div class="official-panel wide"><api-sports-widget data-type="games"></api-sports-widget></div>
+  </div>
+  <div class="official-note">Plan Free: el proxy del servidor aplica caché y presupuesto diario para evitar consumir llamadas por cada visitante.</div>
+</div></section>
+
+<section id="combinadas"><div class="wrap">
+  <div class="section-head"><div><h2>Analizador de combinaciones</h2><p>Selecciona un resultado de varios partidos. Calculamos cuota total, probabilidad conjunta, probabilidad implícita y perfil de riesgo. Una selección por partido evita tratar mercados correlacionados como independientes.</p></div><span class="tag green">NUEVO</span></div>
+  <div class="combo-layout">
+    <article class="panel"><div class="card-head"><div><div class="cat">Constructor</div><h3 style="margin:5px 0 0">Tus selecciones</h3></div><button class="btn small danger" onclick="clearCombo()">Limpiar</button></div><div id="comboList" class="combo-list"><div class="empty">Pulsa Local, Empate o Visitante en un partido LIVE para añadirlo.</div></div><div class="combo-help">La cuota que aparece al añadir una selección es la <b>cuota justa del modelo</b> (1/probabilidad), no una cuota de una casa. Puedes editarla y reemplazarla por la cuota real que veas en tu operador.</div></article>
+    <article class="panel"><div class="cat">Resultado del análisis</div><h3 style="margin:6px 0">Perfil de la combinada</h3><div class="combo-stats"><div class="bigmetric"><span>Cuota combinada</span><b id="comboOdds">1.00</b></div><div class="bigmetric"><span>Probabilidad modelo</span><b id="comboProb">100%</b></div><div class="bigmetric"><span>Prob. implícita</span><b id="comboImplied">100%</b></div><div class="bigmetric"><span>Diferencia</span><b id="comboEdge">0.0 pp</b></div></div><div class="analysis-box" id="comboAnalysis"><strong>Aún no hay una combinación.</strong><br>Agrega al menos dos partidos para comparar la probabilidad conjunta del modelo con la probabilidad implícita por las cuotas introducidas.</div><div class="riskbar" id="riskBar"><i></i><i></i><i></i><i></i></div><div class="shortcut-grid"><button class="shortcut" onclick="autoCombo('conservative')"><b>Conservadora</b><span>2 selecciones con mayor probabilidad</span></button><button class="shortcut" onclick="autoCombo('balanced')"><b>Equilibrada</b><span>3 selecciones con probabilidad media/alta</span></button></div><div class="combo-help">El cálculo base multiplica probabilidades de partidos distintos. No incorpora dependencias externas entre competiciones, noticias simultáneas ni límites del operador.</div></article>
+  </div>
+</div></section>
+
+<section id="analisis"><div class="wrap"><div class="section-head"><div><h2>Asistente de Cash Out</h2><p>Compara el valor estadístico estimado de tu posición con la oferta disponible y explica qué variables elevan el riesgo.</p></div><span class="tag">MÓDULO DEMO</span></div><div class="cashout"><article class="cash-card"><div class="card-head"><div><div class="cat">Apuesta registrada</div><h3 style="margin:5px 0 0">Arsenal gana · @2.15 · S/100</h3></div><span class="tag">Retorno S/215</span></div><div class="signal"><div><strong>🔴 CASH OUT FAVORABLE</strong><div style="font-size:11px;color:#b8a0a5;margin-top:3px">La oferta supera el valor estadístico estimado.</div></div><span class="signal-badge">REVISAR AHORA</span></div><div class="cash-grid"><div class="cash-metric"><span>Cash Out mostrado</span><b>S/173</b></div><div class="cash-metric"><span>Valor modelo</span><b>S/158</b></div><div class="cash-metric"><span>Diferencia</span><b class="positive">+S/15</b></div></div></article><article class="cash-card"><div class="cat">Qué está viendo la IA</div><h3 style="margin:6px 0">Riesgo del partido</h3><div class="reason-list"><div class="reason"><span>Probabilidad cayó 9 pp en 6 min</span><b class="negative">Alerta</b></div><div class="reason"><span>Rival: presión ofensiva reciente</span><b>↑</b></div><div class="reason"><span>xG rival últimos 10 min</span><b>+0.31</b></div><div class="reason"><span>Movimiento de cuota</span><b>1.44 → 1.58</b></div><div class="reason"><span>Tarjetas / expulsiones</span><b>Sin roja</b></div></div><p class="source-note">Señal informativa. No garantiza un resultado ni elimina el riesgo financiero.</p></article></div></div></section>
+
+<section id="cuotas"><div class="wrap"><div class="section-head"><div><h2>Comparador de cuotas</h2><p>Vista preparada para normalizar feeds oficiales y resaltar el mejor precio disponible por mercado.</p></div><span class="tag">DEMO · LINKS OFICIALES</span></div><article class="odds-card odds-wrap"><table class="odds-table"><thead><tr><th>Operador</th><th>Local</th><th>Empate</th><th>Visita</th><th>+2.5</th><th>Fuente</th><th>Sitio</th></tr></thead><tbody><tr><td><div class="book"><span class="book-logo betano">BT</span>Betano</div></td><td><span class="odd">1.58</span></td><td>4.60</td><td>7.20</td><td>1.74</td><td>Demo</td><td><a class="outlink" href="https://www.betano.pe/" rel="nofollow noopener" target="_blank">Sitio oficial ↗</a></td></tr><tr><td><div class="book"><span class="book-logo betsson">BS</span>Betsson</div></td><td><span class="odd best">1.62 ★</span></td><td>4.55</td><td>7.10</td><td><span class="best">1.79 ★</span></td><td>Demo</td><td><a class="outlink" href="https://www.betsson.com/es/apuestas-deportivas/" rel="nofollow noopener" target="_blank">Sitio oficial ↗</a></td></tr><tr><td><div class="book"><span class="book-logo apuestatotal">AT</span>Apuesta Total</div></td><td><span class="odd">1.60</span></td><td><span class="best">4.70 ★</span></td><td>7.00</td><td>1.76</td><td>Demo</td><td><a class="outlink" href="https://www.apuestatotal.com/" rel="nofollow noopener" target="_blank">Sitio oficial ↗</a></td></tr><tr><td><div class="book"><span class="book-logo inkabet">IN</span>Inkabet</div></td><td><span class="odd">1.57</span></td><td>4.62</td><td><span class="best">7.35 ★</span></td><td>1.75</td><td>Demo</td><td><a class="outlink" href="https://www.inkabet.pe/" rel="nofollow noopener" target="_blank">Sitio oficial ↗</a></td></tr></tbody></table><p class="source-note">Las cuotas de esta tabla siguen siendo demostrativas. El backend ya incluye <code>/api/live-odds?fixture=ID</code> para conectar el feed de odds live de API-Football cuando el plan contratado tenga cobertura.</p></article></div></section>
+
+<section id="noticias"><div class="wrap">
+  <div class="section-head"><div><h2>Noticias deportivas</h2><p>Titulares y fuentes actualizados automáticamente cada 1 hora. La web enlaza al medio original; no copia artículos completos.</p></div><div class="section-tools"><span class="tag green">AUTO · 1 HORA</span><span class="meta" id="newsUpdated">—</span></div></div>
+  <div id="newsGrid" class="news-auto"><article class="news-card"><div class="cat">Actualizando</div><h3>Buscando noticias deportivas recientes…</h3><p>El servidor mantiene un caché horario para reducir carga y evitar duplicados.</p></article></div>
+  <div class="source-note">Para publicar análisis SEO originales de forma automática se recomienda agregar después un flujo editorial con revisión, atribución de fuentes y un proveedor de IA; esta versión no inventa entrevistas ni republica textos de terceros.</div>
+</div></section>
+
+<section id="tecnologia"><div class="wrap"><div class="section-head"><div><h2>Arquitectura v2</h2><p>Frontend + backend proxy + API Live + motor de combinadas.</p></div></div><div class="tech"><div class="tech-card"><div class="ico">⚽</div><b>Partidos LIVE</b><span>API-Football <code>fixtures?live=all</code> vía backend, cache y refresco objetivo cada 15 segundos.</span></div><div class="tech-card"><div class="ico">🧮</div><b>Combinadas</b><span>Cuota total, probabilidad conjunta, implícita, diferencia y perfil de riesgo.</span></div><div class="tech-card"><div class="ico">💹</div><b>Odds Live</b><span>Ruta preparada para <code>odds/live</code> por fixture sin exponer la API key.</span></div><div class="tech-card"><div class="ico">📰</div><b>Noticias + SEO</b><span>Pipeline horario, deduplicación, fuentes, schema.org, sitemaps y enlazado interno.</span></div></div></div></section>
+</main>
+
+<footer class="footer"><div class="wrap footer-grid"><div><a class="logo" href="#inicio"><span class="mark">S</span><span>SportEdge <span style="color:var(--green)">AI</span></span></a><p style="max-width:360px;margin-top:12px">Plataforma de análisis deportivo basada en datos. Las probabilidades son estimaciones y no garantizan resultados.</p></div><div><h4>Producto</h4><a href="#live">Partidos en vivo</a><a href="#combinadas">Combinadas</a><a href="#analisis">Cash Out</a><a href="#cuotas">Comparador</a></div><div><h4>Proveedores</h4><a target="_blank" rel="noopener" href="https://www.api-football.com/">API-Football ↗</a><a target="_blank" rel="noopener" href="https://www.sportmonks.com/football-api/">Sportmonks ↗</a><a target="_blank" rel="noopener" href="https://apuestasdeportivas.mincetur.gob.pe/">MINCETUR ↗</a></div><div><h4>Información</h4><a target="_blank" rel="noopener" href="https://dashboard.api-football.com/">Obtener API key ↗</a><a href="#tecnologia">Metodología</a><a href="#">Juego responsable</a><a href="#">Privacidad</a></div></div><div class="wrap legal"><span>© 2026 SportEdge AI · GitHub-ready v3</span><span>18+ · Juega responsablemente. No persigas pérdidas ni apuestes dinero que necesites.</span></div></footer>
+
+<div class="toast" id="toast"><strong id="toastTitle">Actualización</strong><span id="toastText">Datos actualizados.</span></div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+let liveMatches=[];
+let allLiveMatches=[];
+let countryFilter='all';
+let combo=[];
+let apiConnected=false;
+
+const demoMatches=[
+  {id:'d1',elapsed:73,status:'2H',league:{name:'Premier League',country:'England'},home:{name:'Arsenal',goals:2,logo:''},away:{name:'Liverpool',goals:1,logo:''}},
+  {id:'d2',elapsed:62,status:'2H',league:{name:'LaLiga',country:'Spain'},home:{name:'Real Madrid',goals:1,logo:''},away:{name:'Barcelona',goals:1,logo:''}},
+  {id:'d3',elapsed:51,status:'2H',league:{name:'Serie A',country:'Italy'},home:{name:'Inter',goals:1,logo:''},away:{name:'Milan',goals:0,logo:''}},
+  {id:'d4',elapsed:34,status:'1H',league:{name:'Liga 1',country:'Peru'},home:{name:'Universitario',goals:0,logo:''},away:{name:'Sporting Cristal',goals:0,logo:''}},
+  {id:'d5',elapsed:81,status:'2H',league:{name:'Bundesliga',country:'Germany'},home:{name:'Bayern',goals:3,logo:''},away:{name:'Leverkusen',goals:2,logo:''}},
+  {id:'d6',elapsed:27,status:'1H',league:{name:'Ligue 1',country:'France'},home:{name:'PSG',goals:1,logo:''},away:{name:'Monaco',goals:1,logo:''}},
+];
+
+function initials(name){return String(name||'?').split(/\s+/).map(x=>x[0]).join('').slice(0,2).toUpperCase()}
+function crestHtml(team,cls='mini-ball'){
+  return team.logo?`<i class="${cls}"><img src="${esc(team.logo)}" alt=""></i>`:`<i class="${cls}">${esc(initials(team.name))}</i>`;
+}
+
+function modelProbs(match){
+  const minute=clamp(Number(match.elapsed||1),1,90); const t=minute/90;
+  const diff=Number(match.home.goals||0)-Number(match.away.goals||0);
+  let h=.41,d=.29,a=.30;
+  const scoreForce=diff*(.15+.22*t);
+  h+=scoreForce; a-=scoreForce; d-=Math.abs(diff)*(.07+.08*t);
+  if(diff===0){d+=.09*t;h-=.045*t;a-=.045*t}
+  if(minute>75&&diff>0){h+=.08;a-=.05;d-=.03}
+  if(minute>75&&diff<0){a+=.08;h-=.05;d-=.03}
+  h=clamp(h,.03,.92);d=clamp(d,.03,.7);a=clamp(a,.03,.92);
+  const sum=h+d+a; return {home:h/sum,draw:d/sum,away:a/sum};
+}
+function pct(x){return Math.round(x*100)+'%'}
+function fairOdd(p){return Math.max(1.01,1/p).toFixed(2)}
+
+function populateLeagueFilter(){
+  const sel=$('#leagueFilter'); if(!sel)return;
+  const current=sel.value;
+  const source=countryFilter==='peru'?allLiveMatches.filter(m=>String(m.league?.country||'').toLowerCase()==='peru'):allLiveMatches;
+  const leagues=[...new Set(source.map(m=>m.league?.name).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+  sel.innerHTML='<option value="">Todas las ligas</option>'+leagues.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');
+  if(leagues.includes(current))sel.value=current;
+}
+function setCountryFilter(mode,btn){
+  countryFilter=mode;
+  document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  populateLeagueFilter(); applyFilters();
+}
+function applyFilters(){
+  const q=String($('#matchSearch')?.value||'').trim().toLowerCase();
+  const league=String($('#leagueFilter')?.value||'');
+  liveMatches=allLiveMatches.filter(m=>{
+    const peru=String(m.league?.country||'').toLowerCase()==='peru';
+    if(countryFilter==='peru'&&!peru)return false;
+    if(league&&m.league?.name!==league)return false;
+    if(q){const hay=[m.home?.name,m.away?.name,m.league?.name,m.league?.country].join(' ').toLowerCase();if(!hay.includes(q))return false}
+    return true;
+  });
+  const summary=$('#filterSummary'); if(summary)summary.textContent=`${liveMatches.length} de ${allLiveMatches.length} partidos · ${countryFilter==='peru'?'Perú':'todos los países'}${league?' · '+league:''}`;
+  renderLive();
+}
+function renderLive(){
+  const grid=$('#liveGrid');
+  if(!liveMatches.length){grid.innerHTML='<div class="empty">No hay partidos que coincidan con los filtros en este momento.</div>';return}
+  grid.innerHTML=liveMatches.slice(0,30).map(m=>{
+    const p=modelProbs(m); const elapsed=m.elapsed?`${m.elapsed}'`:(m.status||'LIVE');
+    return `<article class="match-card">
+      <div class="league"><span class="league-name">${esc(m.league?.country?m.league.country+' · ':'')}${esc(m.league?.name||'Competición')}</span><span class="tag live">${esc(elapsed)} LIVE</span></div>
+      <div class="mini-teams"><div class="mini-team"><span>${crestHtml(m.home)}<em>${esc(m.home.name)}</em></span><span class="mini-score">${esc(m.home.goals)}</span></div><div class="mini-team"><span>${crestHtml(m.away)}<em>${esc(m.away.name)}</em></span><span class="mini-score">${esc(m.away.goals)}</span></div></div>
+      <div class="statsline"><div class="metric"><small>Modelo local</small><b class="spark">${pct(p.home)}</b></div><div class="metric"><small>Empate / visita</small><b>${pct(p.draw)} · ${pct(p.away)}</b></div></div>
+      <div class="pick-row"><button class="pick" onclick="addLeg('${esc(m.id)}','home')">Local ${pct(p.home)}<br>@${fairOdd(p.home)}</button><button class="pick" onclick="addLeg('${esc(m.id)}','draw')">Empate ${pct(p.draw)}<br>@${fairOdd(p.draw)}</button><button class="pick" onclick="addLeg('${esc(m.id)}','away')">Visita ${pct(p.away)}<br>@${fairOdd(p.away)}</button></div>
+    </article>`
+  }).join('');
+  updateHero(liveMatches[0]);
+}
+
+function updateHero(m){
+  if(!m)return;const p=modelProbs(m);$('#heroLeague').textContent=m.league?.name||'Competición';$('#heroElapsed').textContent=m.elapsed?`${m.elapsed}'`:(m.status||'LIVE');$('#heroHome').textContent=m.home.name;$('#heroAway').textContent=m.away.name;$('#heroScore').textContent=`${m.home.goals} – ${m.away.goals}`;$('#pHome').textContent=pct(p.home);$('#pDraw').textContent=pct(p.draw);$('#pAway').textContent=pct(p.away);$('#pHomeLabel').textContent=m.home.name;$('#pAwayLabel').textContent=m.away.name;$('#heroLiveBadge').textContent=apiConnected?'API LIVE':'DEMO';$('#heroLiveBadge').className='tag live';
+  $('#heroHomeCrest').innerHTML=m.home.logo?`<img src="${esc(m.home.logo)}" alt="">`:esc(initials(m.home.name));$('#heroAwayCrest').innerHTML=m.away.logo?`<img src="${esc(m.away.logo)}" alt="">`:esc(initials(m.away.name));
+  const conf=Math.round(clamp(58+Math.abs((m.home.goals||0)-(m.away.goals||0))*8+(m.elapsed||0)*.16,58,92));$('#confidenceText').textContent=conf+'/100';$('#confidenceBar').style.width=conf+'%';
+}
+
+async function refreshLive(manual=false){
+  try{
+    const status=await fetch('/api/status',{cache:'no-store'}).then(r=>r.json());
+    apiConnected=!!status.configured;
+    if($('#quotaText'))$('#quotaText').textContent=`${status.usedToday||0}/${status.dailyBudget||90}`;
+    if(!apiConnected){
+      allLiveMatches=demoMatches; liveMatches=[...allLiveMatches];
+      $('#apiStatus').textContent='Modo demo · falta API key';$('#apiStatus').className='statuspill warn';$('#liveMode').textContent='DEMO';$('#configCard').classList.add('show');populateLeagueFilter();applyFilters();$('#liveCount').textContent=allLiveMatches.length+' demo';$('#lastFetch').textContent=new Date().toLocaleTimeString('es-PE');if(manual)toast('Modo demo','Configura APISPORTS_KEY en el servidor para recibir partidos reales.');return;
+    }
+    $('#configCard').classList.remove('show');
+    const res=await fetch('/api/live',{cache:'no-store'});if(!res.ok)throw new Error('No se pudo consultar /api/live');const data=await res.json();
+    allLiveMatches=data.matches||[]; liveMatches=[...allLiveMatches];
+    $('#apiStatus').textContent=data.stale?'API conectada · caché protegido':'API-Football conectada';$('#apiStatus').className='statuspill ok';$('#liveMode').textContent='API LIVE';$('#liveMode').className='tag green';$('#liveCount').textContent=String(data.count??allLiveMatches.length);$('#lastFetch').textContent=new Date(data.fetchedAt||Date.now()).toLocaleTimeString('es-PE');populateLeagueFilter();applyFilters();if(manual)toast('LIVE actualizado',`${allLiveMatches.length} partidos disponibles. El servidor administra el caché del plan Free.`);
+  }catch(e){
+    if(!allLiveMatches.length)allLiveMatches=demoMatches; liveMatches=[...allLiveMatches];$('#apiStatus').textContent='Error de conexión · mostrando caché/demo';$('#apiStatus').className='statuspill warn';$('#liveMode').textContent='DEMO';$('#lastFetch').textContent=new Date().toLocaleTimeString('es-PE');populateLeagueFilter();applyFilters();if(manual)toast('Error de conexión',e.message||'No se pudo actualizar');
+  }
+}
+
+async function loadNews(){
+  const grid=$('#newsGrid');
+  try{
+    const data=await fetch('/api/news',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Noticias no disponibles');return r.json()});
+    const items=(data.items||[]).slice(0,12);
+    if($('#newsUpdated'))$('#newsUpdated').textContent=data.fetchedAt?`Actualizado ${new Date(data.fetchedAt).toLocaleTimeString('es-PE',{hour:'2-digit',minute:'2-digit'})}`:'—';
+    if(!items.length){grid.innerHTML='<article class="news-card"><div class="cat">Sin titulares</div><h3>No se recibieron noticias en esta actualización.</h3></article>';return}
+    grid.innerHTML=items.map((n,i)=>`<article class="news-card"><div class="cat">${i<3?'Última hora':'Radar deportivo'}</div><h3>${esc(n.title)}</h3><div class="meta">${esc(n.source||'Fuente deportiva')} · ${n.publishedAt?new Date(n.publishedAt).toLocaleString('es-PE',{dateStyle:'short',timeStyle:'short'}):'reciente'}</div><a class="news-link" href="${esc(n.link)}" target="_blank" rel="noopener nofollow">Leer en la fuente original ↗</a></article>`).join('');
+  }catch(e){grid.innerHTML='<article class="news-card"><div class="cat">Noticias</div><h3>No se pudieron actualizar los titulares.</h3><p>La web volverá a intentarlo automáticamente.</p></article>'}
+}
+
+function sideInfo(match,side){const p=modelProbs(match);if(side==='home')return{label:`${match.home.name} gana`,p:p.home};if(side==='draw')return{label:'Empate',p:p.draw};return{label:`${match.away.name} gana`,p:p.away}}
+function addLeg(id,side){
+  const match=(allLiveMatches.length?allLiveMatches:liveMatches).find(m=>String(m.id)===String(id));if(!match)return;const info=sideInfo(match,side);
+  combo=combo.filter(x=>String(x.fixtureId)!==String(id));combo.push({fixtureId:id,match:`${match.home.name} vs ${match.away.name}`,selection:info.label,p:info.p,odds:Number(fairOdd(info.p))});renderCombo();toast('Selección añadida',`${info.label} · ${match.home.name} vs ${match.away.name}`);
+}
+function removeLeg(id){combo=combo.filter(x=>String(x.fixtureId)!==String(id));renderCombo()}
+function clearCombo(){combo=[];renderCombo()}
+function updateOdd(id,value){const leg=combo.find(x=>String(x.fixtureId)===String(id));if(!leg)return;const n=parseFloat(value);if(Number.isFinite(n)&&n>=1.01&&n<1000)leg.odds=n;renderCombo(false)}
+
+function renderCombo(rebuild=true){
+  const list=$('#comboList');
+  if(rebuild){if(!combo.length)list.innerHTML='<div class="empty">Pulsa Local, Empate o Visitante en un partido LIVE para añadirlo.</div>';else list.innerHTML=combo.map(x=>`<div class="combo-leg"><div class="label"><b>${esc(x.selection)}</b><span>${esc(x.match)} · Modelo ${pct(x.p)}</span></div><input class="odd-input" type="number" min="1.01" step="0.01" value="${Number(x.odds).toFixed(2)}" aria-label="Cuota" onchange="updateOdd('${esc(x.fixtureId)}',this.value)"><button class="remove" onclick="removeLeg('${esc(x.fixtureId)}')">×</button></div>`).join('')}
+  let odds=1,p=1;combo.forEach(x=>{odds*=Number(x.odds)||1;p*=x.p});const implied=odds>1?1/odds:1;const edge=(p-implied)*100;
+  $('#comboOdds').textContent=odds.toFixed(2);$('#comboProb').textContent=(p*100).toFixed(1)+'%';$('#comboImplied').textContent=(implied*100).toFixed(1)+'%';$('#comboEdge').textContent=(edge>=0?'+':'')+edge.toFixed(1)+' pp';$('#comboEdge').className=edge>2?'positive':edge<-2?'negative':'';
+  const bars=[...document.querySelectorAll('#riskBar i')];bars.forEach(x=>x.classList.remove('on'));
+  let risk=0;if(combo.length>=2){if(combo.length===2&&p>=.35)risk=1;else if(combo.length<=3&&p>=.18)risk=2;else if(combo.length<=4&&p>=.08)risk=3;else risk=4}bars.slice(0,risk).forEach(x=>x.classList.add('on'));
+  let txt;if(combo.length<2)txt='<strong>Aún no hay una combinación completa.</strong><br>Agrega al menos dos partidos distintos para obtener un análisis conjunto.';else{const riskName=['','Bajo/medio','Medio','Alto','Muy alto'][risk];const valueText=edge>3?'Las cuotas introducidas implican una probabilidad menor que la estimación conjunta del modelo. Hay diferencia positiva, pero sigue existiendo riesgo de error de modelo.':edge<-3?'La probabilidad implícita de las cuotas es mayor que la estimada por el modelo; con estos datos la combinación no muestra ventaja estadística.':'Las cuotas y el modelo están relativamente alineados; la diferencia estimada es pequeña.';txt=`<strong>${combo.length} selecciones · riesgo ${riskName}.</strong><br>${valueText}<br><br>Probabilidad conjunta estimada: <strong>${(p*100).toFixed(1)}%</strong>. Cada nueva selección multiplica la posibilidad de fallo de la combinada.`}
+  $('#comboAnalysis').innerHTML=txt;
+}
+
+function autoCombo(mode){
+  if(liveMatches.length<2){toast('Sin suficientes partidos','Se necesitan al menos 2 partidos LIVE.');return}
+  const ranked=liveMatches.map(m=>{const p=modelProbs(m);const opts=[['home',p.home],['draw',p.draw],['away',p.away]].sort((a,b)=>b[1]-a[1]);return{m,side:opts[0][0],p:opts[0][1]}}).sort((a,b)=>b.p-a.p);
+  const n=mode==='conservative'?2:Math.min(3,ranked.length);combo=[];ranked.slice(0,n).forEach(x=>{const info=sideInfo(x.m,x.side);combo.push({fixtureId:x.m.id,match:`${x.m.home.name} vs ${x.m.away.name}`,selection:info.label,p:info.p,odds:Number(fairOdd(info.p))})});renderCombo();toast('Combinación generada',mode==='conservative'?'2 selecciones de mayor probabilidad.':'3 selecciones con mejor probabilidad disponible.');
+}
+
+function toast(title,text){$('#toastTitle').textContent=title;$('#toastText').textContent=text;const t=$('#toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3800)}
+
+refreshLive(false);setInterval(()=>refreshLive(false),60000);loadNews();setInterval(loadNews,600000);renderCombo();
+</script>
+
+<!-- API-SPORTS Widgets v3: la clave queda vacía a propósito; el backend la añade -->
+<api-sports-widget id="apiSportsConfig" data-type="config"
+  data-key=""
+  data-sport="football"
+  data-lang="es"
+  data-theme="white"
+  data-show-errors="true"
+  data-show-logos="true"
+  data-favorite="true"
+  data-standings="true"
+  data-refresh="600"
+  data-target-game="modal"
+  data-target-team="modal"
+  data-target-player="modal"
+></api-sports-widget>
+<script>
+  // URL absoluta del proxy seguro en el mismo dominio (Hostinger/local).
+  document.getElementById('apiSportsConfig')?.setAttribute('data-url-football', `${location.origin}/api/football/`);
+</script>
+<script type="module" crossorigin src="https://widgets.api-sports.io/3.1.0/widgets.js"></script>
+
+</body>
+</html>
