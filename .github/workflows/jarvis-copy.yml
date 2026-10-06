@@ -1,0 +1,34 @@
+name: Publish JARVIS v0.2.1 SAFE
+
+on:
+  push:
+    branches: [ jarvis-apk-download ]
+    paths:
+      - '.github/workflows/jarvis-copy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: jarvis-apk-download
+      - name: Download verified APK from build sandbox
+        shell: bash
+        run: |
+          curl -fL 'https://sb-34utt8jzw9zi.vercel.run/JARVIS-v0.2.1-SAFE.apk' -o JARVIS-v0.2.1-SAFE.apk
+          test "$(wc -c < JARVIS-v0.2.1-SAFE.apk)" = "73767"
+          echo '30b670e0c27ecf69cc37c9ebb94df504fff3b25a68cf17fba98652293dfbcca6  JARVIS-v0.2.1-SAFE.apk' | sha256sum -c -
+          unzip -t JARVIS-v0.2.1-SAFE.apk >/dev/null
+      - name: Publish APK
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f JARVIS-v0.2.1-SAFE.apk
+          git commit -m "Publish JARVIS v0.2.1 SAFE APK" || exit 0
+          git push origin jarvis-apk-download
